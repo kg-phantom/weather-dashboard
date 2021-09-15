@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="p-2 text-center">
+        <h1 class="fw-bold text-light">Weather Dashboard</h1>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-3 p-3">
+                <h2 class="fw-bold">Search for a City:</h2>
+                <form class="w-100" id="search-form">
+                    <input name="city" id="city" type="text" class="w-100 border border-dark border-1 rounded-3 fs-5 p-2" placeholder="Enter city" />
+                    <button id="submit-btn" class="w-100 btn btn-primary p-1 mt-2" type="submit">Search</button>
+                </form>
+                <div class="w-100 mt-2 p-2 border-top border-2 border-secondary">
+                </div>
+            </div>
+            <div class="col-12 col-md-9 p-3">
+                <div class="border border-1 border-dark p-1">
+                    <h2 id="city-name" class="fw-bold">
+                        <span id="date"></span>
+                    </h2>
+                    <p id="current-temperature">test</p>
+                    <p id="current-wind">test</p>
+                    <p id="current-humidity">test</p>
+                    <p id="current-uv">test</p>
+                </div>
+                <div class="container-fluid p-0 pt-3">
+                    <div class="row">
+                        <h3 class="fw-bold">5-Day Forecast</h3>
+                        <div class="col-6 col-md-2">
+                            <h4>test</h4>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <h4>test</h4>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <h4>test</h4>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <h4>test</h4>
+                        </div>
+                        <div class="col-6 col-md-2">
+                            <h4>test</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
