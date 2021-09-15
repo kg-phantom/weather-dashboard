@@ -10,3 +10,7 @@ header {
 #submit-btn:hover {
     opacity: 1;
 }
+
+.forecast {
+    background-color: rgb(67, 72, 100);
+}
