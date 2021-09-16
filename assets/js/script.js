@@ -3,11 +3,24 @@ var searchHistory = JSON.parse(localStorage.getItem("search history"));
 
 var submitHandler = function(event) {
     event.preventDefault();
-    var cityName = $("#city").val().trim();
+    var initialCityName = $("#city").val().trim();
     
-    if(!cityName) {
+    if(!initialCityName) {
         alert("Please enter a city name.");
         return;
+    }
+
+    var cityName = initialCityName.split(" ");
+
+    if(cityName.length === 1) {
+        cityName = cityName.toString();
+        cityName = cityName.charAt(0).toUpperCase() + cityName.substr(1).toLowerCase();
+    }
+    else {
+        for(var i = 0; i < cityName.length; i++) {
+            cityName[i] = cityName[i][0].toUpperCase() + cityName[i].substr(1).toLowerCase();
+        }
+        cityName = cityName.join(" ");
     }
 
     getLatLong(cityName);
