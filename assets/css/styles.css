@@ -14,3 +14,19 @@ header {
 .forecast {
     background-color: rgb(67, 72, 100);
 }
+
+#history-btns button {
+    background-color: rgb(196, 196, 196);
+}
+
+#history-btns button:hover {
+    background-color: rgb(131, 131, 131);
+}
+
+.bg-orange {
+    background-color: rgb(219, 99, 18);
+}
+
+#current-uv {
+    padding: 1px 10px;
+}
