@@ -83,7 +83,7 @@ var getForecast = function(cityLatitude, cityLongitude) {
 
                 // display current weather icon
                 var weatherIcon = data.current.weather[0].icon;
-                $("#current-icon").attr("src", "http://openweathermap.org/img/wn/" + weatherIcon + ".png");
+                $("#current-icon").attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + ".png");
 
                 for(var i = 1; i < 6; i++) {
                     var forecastDayEl = $("#day" + i);
@@ -91,7 +91,7 @@ var getForecast = function(cityLatitude, cityLongitude) {
                     forecastDayEl.find("h4").text(forecastDate);
 
                     weatherIcon = data.daily[i].weather[0].icon;
-                    forecastDayEl.find("img").attr("src", "http://openweathermap.org/img/wn/" + weatherIcon + ".png");
+                    forecastDayEl.find("img").attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + ".png");
 
                     forecastDayEl.find("p.temp").text("Temp: " + data.daily[i].temp.day + "°F");
 
