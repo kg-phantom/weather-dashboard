@@ -27,6 +27,10 @@ header {
     background-color: rgb(219, 99, 18);
 }
 
+.bg-purple {
+    background-color: purple;
+}
+
 #current-uv {
     padding: 1px 10px;
 }

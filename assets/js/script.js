@@ -10,6 +10,7 @@ var submitHandler = function(event) {
         return;
     }
 
+    // title case city name
     var cityName = initialCityName.split(" ");
 
     if(cityName.length === 1) {
@@ -26,6 +27,26 @@ var submitHandler = function(event) {
     getLatLong(cityName);
 
     $("#city").val("");
+};
+
+var displaySearches = function() {
+    if($("#history-btns button")) {
+        $("#history-btns button").each(function() {
+            this.remove();
+        });
+    }
+    
+    for(var i = 0; i < searchHistory.length; i++) {
+        var searchHistoryButton = $("<button>").text(searchHistory[i]);
+        searchHistoryButton.addClass("w-100 btn p-1 mt-2");
+
+        $("#history-btns").append(searchHistoryButton);
+    }
+
+    $("#history-btns button").on("click", function(event) {
+        var cityName = event.target.textContent;
+        getLatLong(cityName);
+    });
 };
 
 var getLatLong = function(cityName) {
@@ -57,6 +78,8 @@ var getLatLong = function(cityName) {
                 
                 localStorage.setItem("search history", JSON.stringify(searchHistory));
                 localStorage.setItem("last search", cityName);
+
+                displaySearches();
             })
         }
         else {
@@ -79,19 +102,22 @@ var getForecast = function(cityLatitude, cityLongitude) {
                 $("#current-temperature").text("Temp: " + data.current.temp + "°F");
                 $("#current-wind").text("Wind: " + data.current.wind_speed + " MPH");
                 $("#current-humidity").text("Humidity: " + data.current.humidity + "%");
-                $("#current-uv").text(data.current.uvi).addClass("rounded-3 text-light");
-
+                $("#current-uv").text(data.current.uvi).removeClass();
+                
                 if(data.current.uvi <= 2) {
-                    $("#current-uv").addClass("bg-success");
+                    $("#current-uv").addClass("fs-6 rounded-3 text-light bg-success");
                 }
                 else if(data.current.uvi <= 5) {
-                    $("#current-uv").addClass("bg-warning");
+                    $("#current-uv").addClass("fs-6 rounded-3 text-light bg-warning");
                 }
                 else if(data.current.uvi <= 7) {
-                    $("#current-uv").addClass("bg-orange");
+                    $("#current-uv").addClass("fs-6 rounded-3 text-light bg-orange");
+                }
+                else if(data.current.uvi <= 10) {
+                    $("#current-uv").addClass("fs-6 rounded-3 text-light bg-danger");
                 }
                 else {
-                    $("#current-uv").addClass("bg-danger");
+                    $("#current-uv").addClass("fs-6 rounded-3 text-light bg-purple");
                 };
 
                 // display current weather icon
@@ -117,15 +143,6 @@ var getForecast = function(cityLatitude, cityLongitude) {
     })
 };
 
-var displaySearches = function() {
-    for(var i = 0; i < searchHistory.length; i++) {
-        var searchHistoryButton = $("<button>").text(searchHistory[i]);
-        searchHistoryButton.addClass("w-100 btn p-1 mt-2");
-
-        $("#history-btns").append(searchHistoryButton);
-    }
-};
-
 if(!searchHistory) {
     searchHistory = [];
     // placeholder for first time load
@@ -138,7 +155,3 @@ if(!searchHistory) {
 displaySearches();
 
 $("#submit-btn").on("click", submitHandler);
-$("#history-btns button").on("click", function(event) {
-    var cityName = event.target.textContent;
-    getLatLong(cityName);
-});
