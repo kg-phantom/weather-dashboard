@@ -13,6 +13,7 @@ header {
 
 .forecast {
     background-color: rgb(67, 72, 100);
+    margin: 3px 1px;
 }
 
 #history-btns button {

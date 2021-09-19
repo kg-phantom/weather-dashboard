@@ -86,6 +86,9 @@ var getLatLong = function(cityName) {
             alert("There was a problem with your request.");
         }
     })
+    .catch(function(error) {
+        alert("Unable to connect to OpenWeather.");
+    })
 };
 
 var getForecast = function(cityLatitude, cityLongitude) {
@@ -140,6 +143,9 @@ var getForecast = function(cityLatitude, cityLongitude) {
                 } 
             })
         }
+    })
+    .catch(function(error) {
+        alert("Unable to connect to OpenWeather.");
     })
 };
 
